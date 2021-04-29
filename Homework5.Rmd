@@ -3,3 +3,36 @@ title: "Homework 5"
 author: "Na Yun Cho"
 output: pdf_document
 ---
+```{r}
+library(tidyverse)
+library(mlbench)
+library(ISLR)
+library(caret)
+library(e1071)
+library(kernlab)
+library(DALEX)
+```
+
+```{r}
+data(OJ)
+
+OJ %>% mutate(Store7 = recode(Store7, '1' = 'Yes', '0' = 'No'), Store7 = as.numeric(Store7))
+set.seed(1)
+rowTrain <- createDataPartition(y = OJ$Purchase, p =799/1070, list = FALSE)
+
+train_df = OJ[rowTrain,]
+test_df = OJ[-rowTrain,]
+
+dim(train_df) #has 800 observations
+dim(test_df) #has 270 observations
+```
+
+
+
+
+
+## (a)
+```{r}
+
+```
+
