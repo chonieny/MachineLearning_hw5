@@ -13,15 +13,15 @@ library(kernlab)
 library(DALEX)
 ```
 
-```{r}
+```{r, message = FALSE}
 data(OJ)
 
-OJ %>% mutate(Store7 = recode(Store7, '1' = 'Yes', '0' = 'No'), Store7 = as.numeric(Store7))
+oj = OJ %>% mutate(Store7 = recode(Store7, '1' = 'Yes', '0' = 'No'), Store7 = as.numeric(Store7))
 set.seed(1)
-rowTrain <- createDataPartition(y = OJ$Purchase, p =799/1070, list = FALSE)
+rowTrain <- createDataPartition(y = oj$Purchase, p =799/1070, list = FALSE)
 
-train_df = OJ[rowTrain,]
-test_df = OJ[-rowTrain,]
+train_df = oj[rowTrain,]
+test_df = oj[-rowTrain,]
 
 dim(train_df) #has 800 observations
 dim(test_df) #has 270 observations
