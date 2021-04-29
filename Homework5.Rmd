@@ -15,7 +15,7 @@ library(DALEX)
 
 ```{r, message = FALSE}
 data(OJ)
-
+# partition the data into training set and test set 
 oj = OJ %>% mutate(Store7 = recode(Store7, '1' = 'Yes', '0' = 'No'), Store7 = as.numeric(Store7))
 set.seed(1)
 rowTrain <- createDataPartition(y = oj$Purchase, p =799/1070, list = FALSE)
